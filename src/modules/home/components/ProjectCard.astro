@@ -1,0 +1,55 @@
+---
+import type { Project } from "@/i18n/cv";
+import Badge from '@/shared/components/Badge.astro';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const { url, description, highlights, name, isActive, github } = project;
+---
+
+<!-- TODO: 
+  - Gestionar Links de las tarjetas
+  - 
+-->
+
+<article class="p-4 border border-[--lightGray] h-full flex flex-col gap-4 rounded-lg dark:border-[--darkGray]">
+  <!-- Card-header -->
+  <header class="flex-grow">
+    <h3 class="text-md font-semibold hover:underline hover:underline-offset-1">
+      <a href={url} target="_blank" title={`Ver el proyecto ${name}`}>
+        {name}
+      </a>
+    </h3>
+    <p class="text-xs">{description}</p>
+  </header>
+  <!-- Card-footer -->
+  <footer>
+    <ul class="flex flex-row flex-wrap gap-x-1.5 gap-y-0">
+      {highlights.map( highlight => (
+        <li class="w-fit">
+          <Badge text={ highlight } />
+        </li>
+      ))}
+    </ul>
+  </footer>
+</article>
+
+<!-- 
+
+import { GitHub } from '@/shared/icons/index.astro';
+
+        {isActive && <span>•</span>}
+      {github && (
+        <a
+          class="github-code-link"
+          href={github}
+          target="_blank"
+          title={`Ver código fuente del proyecto ${name}`}
+        >
+        </a>
+      )}
+
+-->

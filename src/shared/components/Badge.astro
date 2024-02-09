@@ -1,0 +1,19 @@
+---
+interface Props {
+  text: String;
+}
+
+const { text }: Props = Astro.props;
+---
+
+<div class="inline-flex px-2 py-0.5 bg-[--bg-color] rounded-md dark:bg-[--lightGray]">
+  <span class="text-[10px] tracking-tighter text-black font-semibold">
+    { text }
+  </span>
+</div>
+
+<style>
+:root {
+  --bg-color: #f3f4f6;
+}
+</style>

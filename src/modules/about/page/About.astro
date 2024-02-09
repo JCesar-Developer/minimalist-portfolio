@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AboutMe from '@/modules/about/sections/AboutMe.astro';
+import WorkExperience from '@/modules/about/sections/WorkExperience.astro';
+import Education from '@/modules/about/sections/Education.astro';
+import { getI18N } from '@/i18n';
+
+const { currentLocale = 'en' } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+<Layout 
+  title={i18n.SEO_TITLE}
+  description={i18n.SEO_DESCRIPTION}
+>
+  <AboutMe />
+  <WorkExperience />
+  <Education />
+</Layout>
+
+<style>
+</style>

@@ -1,0 +1,98 @@
+---
+//import { basics } from "@cv/cv/basics"
+import Section from "@/shared/components/Section.astro";
+import { WorldMap, Mail, Phone, GitHub, LinkedIn } from "@icons/index.astro"
+
+import { getI18N } from '@/i18n';
+const { currentLocale = 'en' } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const { name, label, email, phone, location, profiles } = i18n.CV.basics;
+const { city, region } = location;
+
+const SOCIAL_ICONS: Record<string, string | any> = {
+  GitHub,
+  LinkedIn,
+}
+---
+
+<Section>
+  <div class="flex flex-col gap-6 items-center justify-between sm:flex-row sm:items-start sm:gap-0">
+    
+    <!-- HERO-CONTENT -->
+    <div class="flex flex-col order-1">
+      <p class="w-full order-3 sm:order-1 sm:max-w-sm">{ label }</p>
+      
+      <div class="mb-3 sm:my-0 order-2 flex flex-row items-center justify-between 
+      sm:flex-col sm:items-start">
+
+        <!-- Location -->
+        <div class="my-0 sm:my-3 border border-[--lightGray] w-fit px-2 py-1 rounded-full flex flex-row items-center gap-2 text-[--darkGray] dark:border-[--darkGray] dark:text-[--lightGray]">
+          <WorldMap />
+          <p class="text-xs">
+            {city}, {region}
+          </p>
+        </div>
+
+        <!-- Link-buttons --> 
+        <footer>
+          <ul class="flex flex-row gap-2">
+            <!-- Link-buttons-mail -->
+            <li class="footer__link__icon">
+              <a
+                href={`mailto:${email}`}
+                title={`Enviar un correo electrónico a ${name} al correo ${email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Mail />
+              </a>
+            </li>
+            <!-- Link-buttons-phone -->
+            <li class="footer__link__icon">
+              <a
+                href={`tel:${phone}`}
+                title={`Llamar por teléfono a ${name} al número ${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Phone />
+              </a>
+            </li>
+            <!-- Link-buttons-social-icons -->
+            {
+              profiles.map(({ network, url }) => {
+                const Icon = SOCIAL_ICONS[network]
+    
+                return (
+                  <li class="footer__link__icon">
+                    <a
+                      href={url}
+                      title={`Visitar el perfil de ${name} en ${network}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Icon />
+                    </a>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </footer>
+      
+      </div>
+    </div>
+  
+    <!-- HERO-IMAGE -->
+    <div class="max-w-36 w-full aspect-square order-0 rounded-2xl overflow-hidden sm:order-2 sm:rounded-xl">
+      <img class="w-full bg-cover bg-center" src="/images/me.webp" alt="Hero image" />
+    </div>
+  </div>
+</Section>
+
+<style>
+.footer__link__icon {
+  @apply w-8 h-8 p-2 border border-[--lightGray] rounded-md flex items-center justify-center text-[--darkGray] cursor-pointer dark:border-[--darkGray] dark:text-[--lightGray] hover:bg-[--veryLightGray] hover:text-gray-900 dark:hover:bg-[--veryLightBlue];
+}
+</style>

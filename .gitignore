@@ -4,6 +4,10 @@ dist/
 # generated types
 .astro/
 
+# packer
+pnpm-lock.yaml
+npm-package.json
+
 # dependencies
 node_modules/
 

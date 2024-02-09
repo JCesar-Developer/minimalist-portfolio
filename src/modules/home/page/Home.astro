@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Skills from '@/modules/home/sections/Skills.astro';
+import Projects from '@/modules/home/sections/Projects.astro';
+
+import { getI18N } from '@/i18n';
+const { currentLocale = 'en' } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+<Layout 
+  title={i18n.SEO_TITLE}
+  description={i18n.SEO_DESCRIPTION}
+>
+  <Skills />
+  <Projects />
+</Layout>
+
+<style>
+</style>

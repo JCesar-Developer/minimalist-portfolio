@@ -1,0 +1,52 @@
+---
+interface Props {
+  name: string;
+  Icon?: any;
+}
+
+const { name, Icon }: Props = Astro.props;
+---
+
+<div class:list={[
+  "pl-2 pr-3 h-6 flex flex-row gap-1 items-center bg-zinc-700/95 rounded-lg cursor-pointer group duration-200 dark:bg-[--lightGray]", 
+  {
+    'hover:bg-[--HTML] dark:hover:bg-[--HTML]': name === 'HTML',
+    'hover:bg-[--CSS] dark:hover:bg-[--CSS]': name === 'CSS',
+    'hover:bg-[--Tailwind] dark:hover:bg-[--Tailwind]': name === 'Tailwind',
+    'hover:bg-[--JavaScript] dark:hover:bg-[--JavaScript]': name === 'JavaScript',
+    'hover:bg-[--TypeScript] dark:hover:bg-[--TypeScript]': name === 'TypeScript',
+    'hover:bg-[--Angular] dark:hover:bg-[--Angular]': name === 'Angular',
+    'hover:bg-[--Vue] dark:hover:bg-[--Vue]': name === 'Vue',
+    'hover:bg-[--astro] dark:hover:bg-[--astro]': name === 'astro',
+    'hover:bg-[--Node] dark:hover:bg-[--Node]': name === 'Node',
+    'hover:bg-[--MySQL] dark:hover:bg-[--MySQL]': name === 'MySQL',
+    'hover:bg-[--Git] dark:hover:bg-[--Git]': name === 'Git',
+    'hover:bg-[--GitHub] dark:hover:bg-[--GitHub]': name === 'GitHub',
+  }
+]}>
+  <span class="text-white dark:text-black dark:group-hover:text-white duration-200">
+    { Icon && <Icon/> }
+  </span>
+  <p class="text-xs text-white capitalize font-medium dark:text-black dark:group-hover:text-white duration-200">{ name }</p>
+</div>
+
+<style>
+:root {
+  --HTML: rgba(228, 76, 38, 0.75);
+  --CSS: rgb(38, 77, 228, 0.75);
+  --Tailwind: rgb(56, 178, 172, 0.75);
+  --JavaScript: rgb(247, 223, 30, 0.75);
+  --TypeScript: rgb(49, 120, 198, 0.75);
+  --Angular: rgb(198, 47, 47, 0.75);
+  --Vue: rgb(65, 184, 131, 0.75);
+  --astro: rgb(40, 33, 91, 0.75);
+  --Node: rgb(51, 153, 51, 0.75);
+  --MySQL: rgb(68, 121, 161, 0.75);
+  --Git: rgb(240, 80, 50, 0.75);
+  --GitHub: rgb(24, 23, 23);
+}
+</style>
+
+<!-- 
+  `hover:bg-[--${name}] dark:hover:bg-[--${name}]`
+-->

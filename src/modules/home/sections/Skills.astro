@@ -1,0 +1,43 @@
+---
+import Section from '@/shared/components/Section.astro';
+import { getI18N } from '@/i18n';
+import { HTML, CSS, Tailwind, JavaScript, TypeScript, Angular, Vue, astro, Node, MySQL, Git, GitHub } from '@/shared/icons/index.astro';
+import SkillBadge from '@/modules/home/components/SkillBadge.astro';
+
+const { currentLocale = 'en' } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const { skills: skillsTitle } = i18n.SECTIONS;
+const { skills } = i18n.CV;
+
+const SKILLS_ICONS: Record<string, any> = {
+  HTML,
+  CSS,
+  Tailwind,
+  JavaScript,
+  TypeScript,
+  Angular,
+  Vue,
+  astro,
+  Node,
+  MySQL,
+  Git,
+  GitHub,
+}
+---
+
+<Section title={ skillsTitle }>
+  <ul class="flex flex-row flex-wrap gap-2">
+    {
+      skills.map(({ name }) => {
+        const Icon = SKILLS_ICONS[name]
+        
+        return (
+          <li>
+            <SkillBadge name={ name } Icon={ Icon } />
+          </li>
+        )
+      })
+    }
+  </ul>
+</Section>
