@@ -5,7 +5,7 @@ import WorkExperience from '@/modules/about/sections/WorkExperience.astro';
 import Education from '@/modules/about/sections/Education.astro';
 import { getI18N } from '@/i18n';
 
-const { currentLocale = 'en' } = Astro;
+const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 <Layout 

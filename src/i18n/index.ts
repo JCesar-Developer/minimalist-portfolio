@@ -6,7 +6,7 @@ enum LANGUAGES {
   SPANISH = 'es',
 }
 
-export const getI18N = ({ currentLocale }: { currentLocale: string | undefined }) => {
+export const getI18N = ({ currentLocale = 'en' }: { currentLocale: string | undefined }) => {
   switch (currentLocale) {
     case LANGUAGES.ENGLISH:
       return en;

@@ -7,49 +7,60 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { url, description, highlights, name, isActive, github } = project;
+const { url, description, image, highlights, name, isActive } = project;
 ---
-
-<!-- TODO: 
-  - Gestionar Links de las tarjetas
-  - 
--->
 
 <article class="p-4 border border-[--lightGray] h-full flex flex-col gap-4 rounded-lg dark:border-[--darkGray]">
   <!-- Card-header -->
-  <header class="flex-grow">
-    <h3 class="text-md font-semibold hover:underline hover:underline-offset-1">
-      <a href={url} target="_blank" title={`Ver el proyecto ${name}`}>
-        {name}
-      </a>
-    </h3>
-    <p class="text-xs">{description}</p>
+  <header>
+    <a class="group flex flex-col gap-2" href={url} target="_blank" title={`Ver el proyecto ${name}`}>
+      <!-- Card-header-title -->
+      <h3 class="text-md font-semibold tracking-tight">
+          <span class="group-hover:underline group-hover:underline-offset-1">{name}</span>
+          &#160;&#160;{isActive && <span class="text-green-400">•</span>}
+      </h3>
+
+      <!-- Card header-immage -->
+      <img
+        class="w-full aspect-[2/1] sm:aspect-[5/3] object-cover object-center rounded-md"
+        src={ image }
+        alt={`Imagen del proyecto ${name}`}
+      />
+    </a>
   </header>
+
+  <!-- Card-body -->
+  <section class="flex-grow">
+    <p class="text-sm">
+      {description}
+    </p>
+  </section>
+
   <!-- Card-footer -->
   <footer>
-    <ul class="flex flex-row flex-wrap gap-x-1.5 gap-y-0">
+    <ul class="flex flex-row flex-wrap gap-x-1 gap-y-0">
       {highlights.map( highlight => (
         <li class="w-fit">
-          <Badge text={ highlight } />
+          <Badge 
+            text={ highlight } 
+            type="inline" 
+          />
         </li>
       ))}
     </ul>
   </footer>
 </article>
 
-<!-- 
-
+<!-- Botón para ver el código fuente del proyecto
 import { GitHub } from '@/shared/icons/index.astro';
-
-        {isActive && <span>•</span>}
-      {github && (
-        <a
-          class="github-code-link"
-          href={github}
-          target="_blank"
-          title={`Ver código fuente del proyecto ${name}`}
-        >
-        </a>
-      )}
-
+        
+{github && (
+  <a
+    class="github-code-link"
+    href={github}
+    target="_blank"
+    title={`Ver código fuente del proyecto ${name}`}
+  >
+  </a>
+)}
 -->

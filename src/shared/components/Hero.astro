@@ -4,7 +4,7 @@ import Section from "@/shared/components/Section.astro";
 import { WorldMap, Mail, Phone, GitHub, LinkedIn } from "@icons/index.astro"
 
 import { getI18N } from '@/i18n';
-const { currentLocale = 'en' } = Astro;
+const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
 const { name, label, email, phone, location, profiles } = i18n.CV.basics;

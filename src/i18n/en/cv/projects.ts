@@ -3,65 +3,66 @@ import type { Project } from '@/i18n/cv';
 
 export const projects: Project[] = [
   {
-    name: "mars.codes",
+    name: "El Croquis Digital",
     isActive: true,
-    description: "Historia interactiva con retos de programación para viajar a Marte",
+    image: './images/projects/croquis.webp',
+    description: 'Frontend project developed for the architecture company "El Croquis". It is a web for viewing the company\'s digital magazines, with a subscription model.',
     highlights: [
-      "Elige tu propia aventura",
-      "En desarrollo"
+      "FrontEnd",
+      "HTML",
+      "SASS",
+      "Vue",
+      "Nuxt",
+      "JavaScript",
+      "TypeScript",
+      "REST API",
     ],
-    url: "https://mars.codes"
+    url: "https://www.elcroquisdigital.com/"
   },
   {
-    name: "AdventJS",
+    name: "Astro-Tailwind Projects",
     isActive: true,
-    description: "Retos de programación en JavaScript para cada día de diciembre hasta Navidad",
+    image: './images/projects/astro-tailwind.webp',
+    description: "6 complete landing pages created from a design. Created with Astro + TailwindCSS, with 100% performance and optimized for SEO",
     highlights: [
-      "+1 millón de visitas",
-      "Multidioma",
-      "JavaScript & TypeScript"
+      "HTML",
+      "CSS",
+      'Tailwind',
+      "SEO Optimized",
+      "100% Performance"
     ],
-    url: "https://adventjs.dev"
+    url: "https://astro-tailwind-6.netlify.app/"
   },
   {
-    name: "Codember",
-    isActive: true,
-    description: "Juego interactivo de programación con retos y secretos",
+    name: "Oh-Studio Clone",
+    isActive: false,
+    image: '/images/projects/astro-bem.webp',
+    description: "Clone of the complete Oh-Studio website. Created with Astro + BEM-CSS, with improved animations, with 100% improved performance and optimized for SEO.",
     highlights: [
-      "+2000 usuarios activos",
-      "Retos para cualquier lenguaje"
+      "HTML",
+      "CSS",
+      "BEM-CSS",
+      "CSS Animations",
+      "SEO Optimized",
+      "100% Performance",
     ],
-    url: "https://codember.dev"
+    url: "https://astro-bem-projects.netlify.app/oh.studio/"
   },
   {
-    name: "codi.link",
+    name: "Rick & Morty App",
     isActive: true,
-    description: "Playground de código HTML, CSS y JavaScript para compartir",
+    image: './images/projects/rick-morty.webp',
+    description: "Web application to search characters from the Rick & Morty series. Finalist of the Hackathon contest by Jump2Digital Barcelona.",
     highlights: [
-      "100k visitas al mes",
-      "Desarrollado por la comunidad"
+      "Hackathon Finalist",
+      "HTML",
+      "SASS",
+      "SPA",
+      "Vue",
+      "JavaScript",
+      "TypeScript",
+      "REST API",
     ],
-    url: "https://codi.link",
-    github: "https://github.com/midudev/codi.link"
+    url: "https://jc-rick-and-morty.netlify.app/"
   },
-  {
-    name: "Pruebas Técnicas",
-    isActive: true,
-    description: "Lista de pruebas técnicas de empresas para practicar programación",
-    highlights: [
-      "100% gratuito",
-      "+500 soluciones de la comunidad"
-    ],
-    url: "https://pruebastecnicas.com",
-    github: "https://github.com/midudev/pruebas-tecnicas"
-  },
-  {
-    name: "miduConf",
-    description: "Conferencia de programación en streaming para la comunidad hispanohablante con charlas top",
-    highlights: [
-      "+15k tickets repartidos",
-      "+50k espectadores en directo"
-    ],
-    url: "https://miduconf.com"
-  }
-]
+];

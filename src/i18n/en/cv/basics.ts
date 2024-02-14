@@ -3,7 +3,7 @@ import type { Basics } from '@/i18n/cv'
 
 export const basics: Basics = {
   name: "Julio César Asto",
-  label: "UI/UX Engineer and Frontend Web Developer with one and a half years of experience. Specialized in creating web projects with great attention to detail",
+  label: "UI Engineer and FrontEnd web developer with a year and a half of experience. Specialized in creating web projects with extra attention to detail.",
   image: "/me.webp",
   email: "jcesar.code@gmail.com",
   phone: "+34 632853528",

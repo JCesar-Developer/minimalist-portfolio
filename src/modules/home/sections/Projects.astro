@@ -3,7 +3,7 @@ import Section from '@/shared/components/Section.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getI18N } from '@/i18n';
 
-const { currentLocale = 'en' } = Astro;
+const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
 const { projects: projectsTitle } = i18n.SECTIONS;
@@ -27,7 +27,7 @@ const { projects } = i18n.CV;
 <style>
 ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(302px, 1fr));
   gap: 1rem;
   margin-inline: -16px;
 }

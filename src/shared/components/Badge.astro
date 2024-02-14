@@ -1,13 +1,28 @@
 ---
+type Type = 'normal' | 'inline'
+
 interface Props {
   text: String;
+  type?: Type;
 }
 
-const { text }: Props = Astro.props;
+const { text, type = 'normal' }: Props = Astro.props;
 ---
 
-<div class="inline-flex px-2 py-0.5 bg-[--bg-color] rounded-md dark:bg-[--lightGray]">
-  <span class="text-[10px] tracking-tighter text-black font-semibold">
+<div class:list={[
+  "justify-center bg-[--bg-color] dark:bg-[--lightGray]",
+  {
+    'inline-flex px-2 py-0.5 rounded-md': type === 'inline',
+    'inline-flex items-center px-4 py-1.5 rounded-full': type === 'normal'
+  }  
+]}>
+  <span class:list={[
+    "text-black",
+    {
+      "text-[10px] tracking-tighter": type === "inline",
+      "text-[12px] tracking-tight": type === "normal",
+    }
+  ]}>
     { text }
   </span>
 </div>

@@ -1,0 +1,26 @@
+---
+import Section from "@/shared/components/Section.astro";
+import ClientCard from '@/modules/home/components/ClientCard.astro'
+import { getI18N } from '@/i18n';
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const { clients: projectsTitle } = i18n.SECTIONS;
+const { works } = i18n.CV;
+---
+
+<Section title={ projectsTitle }>
+  <div class="pt-2">
+    <!--<ul class="grid grid-cols-2 md:grid-cols-3 gap-4">-->
+    <ul class="w-fit mx-auto">
+      {
+        works.map( work => (
+          <li>
+            <ClientCard work={ work } />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Section>

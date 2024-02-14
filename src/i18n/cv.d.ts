@@ -1,6 +1,6 @@
 export interface CV {
   basics: Basics
-  work: Array<Work>
+  works: Array<Work>
   volunteer: Array<Volunteer>
   education: Array<Education>
   awards: Array<Awards>
@@ -39,14 +39,21 @@ interface Profiles {
   url: string
 }
 
-interface Work {
+export interface Work {
+  client: Client;
+  highlights: Highlight
   name: string
   position: string
-  url?: string
-  startDate: DateStr
+  startDate: DateStr | null
   endDate: DateStr | null
   summary: string
-  highlights: Highlight
+  url?: string
+}
+
+interface Client {
+  name: string
+  logo?: strings
+  url: string
 }
 
 type DateStr = `${string}-${string}-${string}`
@@ -126,6 +133,7 @@ type Language =
 export interface Project {
   name: string
   isActive?: boolean
+  image: string
   description: string
   highlights: Highlight
   url: string

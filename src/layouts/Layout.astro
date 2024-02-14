@@ -7,7 +7,7 @@ interface Props {
   description: string
 }
 
-const { currentLocale = 'en' } = Astro;
+const { currentLocale } = Astro;
 const { title, description } = Astro.props;
 ---
 
@@ -36,7 +36,7 @@ const { title, description } = Astro.props;
     </script>
   </head>
 
-	<body class="flex flex-col gap-12 dark:bg-[--darkBlue] dark:text-white">
+	<body class="mb-32 flex flex-col gap-12 dark:bg-[--darkBlue] dark:text-white">
     <Header />
     <Hero />
 		<slot />
@@ -60,11 +60,16 @@ const { title, description } = Astro.props;
   font-weight: 600;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter/Inter-Bold.woff2') format('woff2');
   font-weight: 700;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
 }
 
 .b1 { border: solid 1px red; }
@@ -105,6 +110,9 @@ html {
     Liberation Mono,
     Courier New,
     monospace;
+}
+.inter {
+  font-family: 'Inter', sans-serif;
 }
 
 .paragraph-style {

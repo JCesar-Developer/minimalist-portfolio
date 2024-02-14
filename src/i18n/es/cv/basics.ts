@@ -3,7 +3,7 @@ import type { Basics } from '@/i18n/cv'
 
 export const basics: Basics = {
   name: "Julio César Asto",
-  label: "Ingeniero UI/UX y desarrollador web FrontEnd con un año y medio de experienca. Especializado en la creación de proyectos web con gran atención al detalle",
+  label: "Ingeniero UI y desarrollador web FrontEnd con un año y medio de experienca. Especializado en crear proyectos web con gran atención al detalle.",
   image: "/me.webp",
   email: "jcesar.code@gmail.com",
   phone: "+34 632853528",
