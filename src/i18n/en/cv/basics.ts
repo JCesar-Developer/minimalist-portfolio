@@ -8,9 +8,7 @@ export const basics: Basics = {
   email: "jcesar.code@gmail.com",
   phone: "+34 632853528",
   url: "https://jcesar-developer.com/",
-
-  //TODO:
-  summary: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis dolorum esse quam neque repellat consequuntur obcaecati placeat. Laudantium, fuga excepturi error nemo, minima commodi ipsa tempore totam natus, dolor quibusdam!",
+  summary: "As a frontend engineer, I have successfully taken multiple projects from 0 to 1. Integrating into different teams effectively and ensuring an environment where people can do their best work. Currently, I mainly work with TypeScript, Angular, Vue, and Astro. I have over 1 year and a half of experience working remotely with companies from all over the world.",
   location: {
     address: "GMT+1",
     postalCode: "08026",

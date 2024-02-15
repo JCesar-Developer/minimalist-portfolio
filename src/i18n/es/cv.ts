@@ -1,11 +1,16 @@
 import type { CV } from "@/i18n/cv";
-import { basics, skills, projects, works } from './cv/index';
+import { basics, skills, projects, works, experience, education, certificates } from './cv/index';
 
 export const cv: CV = {
   basics,
   skills,
   projects,
   works,
+  experience,
+  education,
+  certificates,
+
+  //NOT USED
   volunteer: [
     {
       organization: "Organization",
@@ -19,34 +24,12 @@ export const cv: CV = {
       ]
     }
   ],
-  education: [
-    {
-      institution: "Universitat Oberta de Catalunya",
-      url: "https://www.uoc.edu/portal/es/index.html",
-      area: "Ingeniero de Software",
-      studyType: "Bachelor",
-      startDate: "2003-01-01",
-      endDate: "2009-01-01",
-      score: "4.0",
-      courses: [
-        "DB1101 - Basic SQL"
-      ]
-    }
-  ],
   awards: [
     {
       title: "Award",
       date: "2014-11-01",
       awarder: "Company",
       summary: "There is no spoon."
-    }
-  ],
-  certificates: [
-    {
-      name: "Certificate",
-      date: "2021-11-07",
-      issuer: "Company",
-      url: "https://certificate.com"
     }
   ],
   publications: [

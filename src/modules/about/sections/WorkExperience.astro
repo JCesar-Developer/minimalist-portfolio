@@ -1,7 +1,23 @@
 ---
 import Section from '@/shared/components/Section.astro'
+import ExperienceCard from '@/modules/about/components/ExperienceCard.astro'
+import { getI18N } from '@/i18n';
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const { experience: projectsTitle } = i18n.SECTIONS;
+const { experience } = i18n.CV;
 ---
 
-<Section title="Work Experience">
-
+<Section title={ projectsTitle }>
+  <ol class="relative space-y-8 border-s border-gray-200 dark:border-gray-700">                  
+    {
+      experience.map((exp) => (
+        <li>
+          <ExperienceCard experience={ exp } />
+        </li>
+      ))
+    }
+  </ol>
 </Section>

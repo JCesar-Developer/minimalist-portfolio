@@ -12,7 +12,7 @@ const i18n = getI18N({ currentLocale });
 const { SEE_WEB } = i18n.GENERAL;
 
 const { work } = Astro.props;
-const { client, position, startDate, endDate, highlights } = work;
+const { client, position, startDate, endDate, typeOfContract } = work;
 const { name: clientName, url: clientUrl } = client;
 
 const startYear = new Date(startDate as string).getFullYear();
@@ -26,20 +26,20 @@ const endYear = endDate ? new Date(endDate).getFullYear() : new Date().getFullYe
 >
   <article class="text-center flex flex-col group"> 
     <!-- Project duration -->
-    <span class="inter text-sm font-thin text-gray-400 mb-1">
+    <time class="inter text-sm font-thin text-gray-400 mb-1">
       { startYear } { endYear && endYear !== startYear && `- ${endYear}` }
-    </span> 
+    </time> 
     <!-- Project client -->
-    <h3 class="tracking-wide font-semibold text-lg group-hover:underline group-hover:decoration-0 group-hover:underline-offset-4">
+    <h4 class="tracking-wide font-semibold text-lg group-hover:underline group-hover:decoration-0 group-hover:underline-offset-4">
       { clientName }
-    </h3> 
+    </h4> 
     <!-- Position -->
     <p class="mt-1.5 mb-3">
       { position }
     </p>
     <!-- Highlights -->
     <span>
-      <Badge text={ highlights[0] } />
+      <Badge text={ typeOfContract } />
     </span>
   </article>
 </a>

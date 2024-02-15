@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import AboutMe from '@/modules/about/sections/AboutMe.astro';
 import WorkExperience from '@/modules/about/sections/WorkExperience.astro';
 import Education from '@/modules/about/sections/Education.astro';
+import Certificates from '@/modules/about/sections/Certificates.astro';
 import { getI18N } from '@/i18n';
 
 const { currentLocale } = Astro;
@@ -15,6 +16,7 @@ const i18n = getI18N({ currentLocale });
   <AboutMe />
   <WorkExperience />
   <Education />
+  <Certificates />
 </Layout>
 
 <style>

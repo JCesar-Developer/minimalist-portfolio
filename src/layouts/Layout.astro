@@ -1,4 +1,5 @@
 ---
+//import { ViewTransitions } from 'astro:transitions';
 import Header from '@/shared/components/Header.astro';
 import Hero from '@/shared/components/Hero.astro';
 
@@ -22,6 +23,8 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 	
     <link rel="preload" href="/fonts/inter/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <!--<ViewTransitions />-->
 
     <script defer>
       if (
@@ -111,6 +114,11 @@ html {
     Courier New,
     monospace;
 }
+
+body {
+  overflow-y: scroll;
+}
+
 .inter {
   font-family: 'Inter', sans-serif;
 }

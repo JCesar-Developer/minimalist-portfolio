@@ -1,7 +1,39 @@
 ---
 import Section from '@/shared/components/Section.astro'
+import { getI18N } from '@/i18n';
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const { education } = i18n.CV;
 ---
 
 <Section title="Education">
+  <ul class="space-y-4">
+    {
+      education.map(({ institution, url, area, studyType, startDate, endDate }) => {
+        const startDateFormatted = new Date(startDate).toLocaleDateString(currentLocale, { month: 'short', year: 'numeric' });
+        const endDateFormatted = endDate ? new Date(endDate).toLocaleDateString(currentLocale, { month: 'short', year: 'numeric' }) : null;        
 
+        return (
+          <li>
+            <article>
+              <header class="flex flex-row justify-between items-center">
+                <h3 class:list={[ "text-md font-semibold text-gray-900 dark:text-white", { 'hover:underline hover:underline-offset-2': url } ]}>
+                  <a href={ url } target="_blank">
+                    { institution }
+                  </a>
+                </h3>
+                <time class="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  { startDateFormatted } { endDateFormatted && ` - ${endDateFormatted}` }
+                </time>
+              </header>
+              <p class="text-gray-400 dark:text-gray-500">
+                { studyType } - { area }.
+              </p>
+            </article>
+          </li>
+        );
+      })
+    }
+  </ul>
 </Section>

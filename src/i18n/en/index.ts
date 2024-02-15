@@ -20,5 +20,8 @@ export default {
     skills: 'Skills',
     projects: 'Projects',
     clients: 'Clients',
+    about: 'About',
+    experience: 'Experience',
+    certificates: 'Certificates',
   }
 }
