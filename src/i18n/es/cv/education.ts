@@ -1,16 +1,6 @@
 //SPANISH TRANSLATIONS
 import type { Education } from "@/i18n/cv";
 
-/*
- * Quiero ver AWS
- * Un certificado de NodeJS
- * Dos certificados de Tailwind
- * [✅] Un certificado de Angular
- * [✅] Un certificado de diseño UI/UX
- * [✅] Dos certificados de Vue
- * [] Un certificado oficial de desarrollo web
-*/
-
 export const education: Education[] = [
   {
     institution: "DevTalles",
