@@ -9,14 +9,14 @@ function afterSwap() {
       window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
     document.documentElement.classList.add('dark')
-    themeToggleLightIcon.classList.remove('hidden')
+    themeToggleLightIcon?.classList.remove('hidden')
   } else {
     document.documentElement.classList.remove('dark')
-    themeToggleDarkIcon.classList.remove('hidden')
+    themeToggleDarkIcon?.classList.remove('hidden')
   }
 
 
-  themeToggleBtn.addEventListener('click', toggleMode)
+  themeToggleBtn!.addEventListener('click', toggleMode)
 
   function toggleMode() {
     themeToggleDarkIcon?.classList.toggle('hidden');

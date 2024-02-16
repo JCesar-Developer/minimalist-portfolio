@@ -1,6 +1,7 @@
 ---
 import type { Project } from "@/i18n/cv";
 import Badge from '@/shared/components/Badge.astro';
+import { GitHub } from '@/shared/icons/index.astro';
 import { getI18N } from "@/i18n";
 
 interface Props {
@@ -9,33 +10,45 @@ interface Props {
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
-const { SEE_PROJECT, SEE_IMAGE } = i18n.GENERAL;
+const { SEE_PROJECT, IMAGE_OF, SEE_CODE } = i18n.GENERAL;
 
 const { project } = Astro.props;
-const { url, description, image, highlights, name, isActive } = project;
+const { url, description, image, github, highlights, name, isActive } = project;
 ---
 
-<article class="p-4 border border-[--veryLightGray] h-full flex flex-col gap-4 rounded-lg dark:border-[--veryLightBlue]">
+<article class="relative p-4 border border-[--veryLightGray] h-full flex flex-col gap-4 rounded-lg dark:border-[--veryLightBlue]">
+
+  {github && (
+    <div class="absolute z-20 right-4 top-6 hover:scale-125 transition-all duration-300 ease-in-out">
+      <a
+        href={ github }
+        target="_blank"
+        title={`${SEE_CODE} ${name}`}
+      >
+        <GitHub />
+      </a>
+    </div>
+  )}
+
   <!-- Card-header -->
   <header class="group flex flex-col gap-2" >
     <a
       href={url}
       target="_blank"
-      title={`${SEE_PROJECT}
-      ${name}`}
+      title={`${SEE_PROJECT} ${name}`}
     >
       <!-- Card-header-title -->
-      <h3 class="text-md font-semibold tracking-tight">
-          <span class="group-hover:underline group-hover:underline-offset-1">{name}</span>
-          &#160;&#160;{isActive && <span class="text-green-400">•</span>}
+      <h3 class="relative text-md font-semibold tracking-tight">
+        <span class="group-hover:underline group-hover:underline-offset-1">{name}</span>
+        &#160;&#160;{isActive && <span class="text-green-400">•</span>}
       </h3>
 
       <!-- Card header-immage -->
-      <div class="aspect-[2/1] sm:aspect-[5/3] overflow-hidden rounded-md">
+      <div class="mt-2 aspect-[2/1] sm:aspect-[5/3] overflow-hidden rounded-md">
         <img
           class="w-full aspect-[2/1] sm:aspect-[5/3] object-cover object-center group-hover:scale-105 transition-all duration-300 ease-in-out"
           src={ image }
-          alt={`${SEE_IMAGE} ${name}`}
+          alt={`${IMAGE_OF} ${name}`}
         />
       </div>
     </a>

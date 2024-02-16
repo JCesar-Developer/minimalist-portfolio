@@ -31,7 +31,8 @@ export const projects: Project[] = [
       "SEO Optimized",
       "100% Performance"
     ],
-    url: "https://astro-tailwind-6.netlify.app/"
+    url: "https://astro-tailwind-6.netlify.app/",
+    github: "https://github.com/JCesar-Developer/astro-tailwind-projects",
   },
   {
     name: "Oh-Studio Clone",
@@ -46,7 +47,8 @@ export const projects: Project[] = [
       "SEO Optimized",
       "100% Performance",
     ],
-    url: "https://astro-bem-projects.netlify.app/oh.studio/"
+    url: "https://astro-bem-projects.netlify.app/oh.studio/",
+    github: "https://github.com/JCesar-Developer/astro-bem-projects",
   },
   {
     name: "Rick & Morty App",
@@ -63,6 +65,7 @@ export const projects: Project[] = [
       "TypeScript",
       "REST API",
     ],
-    url: "https://jc-rick-and-morty.netlify.app/"
+    url: "https://jc-rick-and-morty.netlify.app/",
+    github: "https://github.com/JCesar-Developer/Rick-Morty",
   },
 ];

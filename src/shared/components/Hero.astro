@@ -7,7 +7,8 @@ import { getI18N } from '@/i18n';
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
-const { name, label, email, phone, location, profiles } = i18n.CV.basics;
+const { SEND_EMAIL_TO, PHONE_CALL_TO, VISIT_PROFILE_IN } = i18n.GENERAL;
+const { label, email, phone, location, profiles } = i18n.CV.basics;
 const { city, region } = location;
 
 const SOCIAL_ICONS: Record<string, string | any> = {
@@ -41,7 +42,7 @@ const SOCIAL_ICONS: Record<string, string | any> = {
             <li>
               <a
                 href={`mailto:${email}`}
-                title={`Enviar un correo electrónico a ${name} al correo ${email}`}
+                title={`${SEND_EMAIL_TO} ${email}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -54,7 +55,7 @@ const SOCIAL_ICONS: Record<string, string | any> = {
             <li>
               <a
                 href={`tel:${phone}`}
-                title={`Llamar por teléfono a ${name} al número ${phone}`}
+                title={`${PHONE_CALL_TO} ${phone}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -72,7 +73,7 @@ const SOCIAL_ICONS: Record<string, string | any> = {
                   <li>
                     <a
                       href={url}
-                      title={`Visitar el perfil de ${name} en ${network}`}
+                      title={`${VISIT_PROFILE_IN} ${network}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

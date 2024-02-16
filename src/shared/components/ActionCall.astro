@@ -1,0 +1,26 @@
+---
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const { LETS_WORK_TOGETHER, GET_IN_TOUCH, GET_IN_TOUCH_WITH } = i18n.GENERAL;
+const { email } = i18n.CV.basics
+---
+
+<footer class="container-md text-center mt-5 md:mt-10 mb-20 md:mb-28">
+  <div class="pt-12 md:pt-20 border-t border-[--veryLightGray] dark:border-[--veryLightBlue]">
+    <h1 class="text-3xl md:text-5xl font-medium">
+      { LETS_WORK_TOGETHER }
+    </h1>
+    <h2 class="mt-1 text-3xl md:mt-2 md:text-5xl font-semibold">
+      <a 
+        class="text-[--lightGray] hover:text-[--darkGray] dark:text-[--lightGray] dark:hover:text-[--veryLightGray] transition-colors duration-200 ease-in-out"
+        title={ GET_IN_TOUCH_WITH }
+        href={`mailto:${email}`}
+      >
+        { GET_IN_TOUCH }
+      </a>
+    </h2>
+  </div>
+</footer>
