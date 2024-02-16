@@ -1,5 +1,5 @@
 ---
-//import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from 'astro:transitions';
 import Header from '@/shared/components/Header.astro';
 import Hero from '@/shared/components/Hero.astro';
 
@@ -22,20 +22,28 @@ const { title, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	
-    <link rel="preload" href="/fonts/inter/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <ViewTransitions />
 
-    <!--<ViewTransitions />-->
+    <link rel="preload" href="/fonts/inter/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
     <script defer>
-      if (
-        localStorage.getItem('color-theme') === 'dark' ||
-        (!('color-theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
+      function setTheme(document) {
+        if (
+          localStorage.getItem('color-theme') === 'dark' ||
+          (!('color-theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
       }
+
+      setTheme(document);
+
+      document.addEventListener('astro:before-swap', ev => {
+        setTheme(ev.newDocument);
+      });
     </script>
   </head>
 
@@ -44,17 +52,27 @@ const { title, description } = Astro.props;
     <Hero />
 		<slot />
 	
-    <script src="../shared/helpers/toogle-bg.helper"></script>
+    <script src="@/shared/helpers/toogle-bg.helper"></script>
   </body>
 </html>
 <style is:global>
 :root {
+  /* Dark-variants */
   --veryLightBlue: #374151;
   --darkBlue: #1c2431;
 
-  --veryLightGray: #f3f4f6;
-  --lightGray: #ececec;
+  /* Light-variantss */
+  --veryLightGray: #ececec;
+  --lightGray: #9ca3af;
   --darkGray: #666;
+  --veryDarkGray: #1f2937;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
@@ -67,12 +85,6 @@ const { title, description } = Astro.props;
   font-family: 'Inter';
   src: url('/fonts/inter/Inter-Bold.woff2') format('woff2');
   font-weight: 700;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter/Inter-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
 }
 
 .b1 { border: solid 1px red; }
@@ -124,7 +136,7 @@ body {
 }
 
 .paragraph-style {
-  @apply text-[--darkGray] text-sm text-pretty leading-5 dark:text-[--lightGray];
+  @apply text-[--darkGray] text-sm text-pretty leading-5 dark:text-[--veryLightGray];
 }
 
 p {

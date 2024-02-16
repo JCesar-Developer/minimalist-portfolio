@@ -1,19 +1,29 @@
 ---
 import type { Project } from "@/i18n/cv";
 import Badge from '@/shared/components/Badge.astro';
+import { getI18N } from "@/i18n";
 
 interface Props {
   project: Project;
 }
 
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const { SEE_PROJECT, SEE_IMAGE } = i18n.GENERAL;
+
 const { project } = Astro.props;
 const { url, description, image, highlights, name, isActive } = project;
 ---
 
-<article class="p-4 border border-[--lightGray] h-full flex flex-col gap-4 rounded-lg dark:border-[--darkGray]">
+<article class="p-4 border border-[--veryLightGray] h-full flex flex-col gap-4 rounded-lg dark:border-[--veryLightBlue]">
   <!-- Card-header -->
-  <header>
-    <a class="group flex flex-col gap-2" href={url} target="_blank" title={`Ver el proyecto ${name}`}>
+  <header class="group flex flex-col gap-2" >
+    <a
+      href={url}
+      target="_blank"
+      title={`${SEE_PROJECT}
+      ${name}`}
+    >
       <!-- Card-header-title -->
       <h3 class="text-md font-semibold tracking-tight">
           <span class="group-hover:underline group-hover:underline-offset-1">{name}</span>
@@ -21,11 +31,13 @@ const { url, description, image, highlights, name, isActive } = project;
       </h3>
 
       <!-- Card header-immage -->
-      <img
-        class="w-full aspect-[2/1] sm:aspect-[5/3] object-cover object-center rounded-md"
-        src={ image }
-        alt={`Imagen del proyecto ${name}`}
-      />
+      <div class="aspect-[2/1] sm:aspect-[5/3] overflow-hidden rounded-md">
+        <img
+          class="w-full aspect-[2/1] sm:aspect-[5/3] object-cover object-center group-hover:scale-105 transition-all duration-300 ease-in-out"
+          src={ image }
+          alt={`${SEE_IMAGE} ${name}`}
+        />
+      </div>
     </a>
   </header>
 

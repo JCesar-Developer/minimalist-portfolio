@@ -16,33 +16,35 @@ const endDateFormatted = endDate && new Date(endDate).toLocaleDateString(current
 
 <article>
   <!-- Bullet -->
-  <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-2 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+  <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-2.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
 
   <div class="relative start-4 pr-4 md:start-6 md:pr-6">
     <!-- Company && Date -->
-    <header class="flex flex-row justify-between items-center">
-      <h3 class:list={["text-md font-semibold text-gray-900 dark:text-white",
-        {
-          'hover:underline hover:underline-offset-2': companyUrl,
-        }
-      ]}>
+    <header class="mb-4">
+      <div class="flex flex-row justify-between items-center">
         <a href={ companyUrl } target="_blank">
-          { company }
+
+          <h3 class:list={["text-md font-semibold text-[--veryDarkGray] dark:text-white",
+            {
+              'hover:underline hover:decoration-1 hover:underline-offset-4': companyUrl,
+            }
+          ]}>
+            { company }
+          </h3>
         </a>
-      </h3>
-      <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-        { startDateFormatted } { endDateFormatted && ` - ${endDateFormatted}` }
-      </time>
+        <time class="text-xs">
+          { startDateFormatted } { endDateFormatted && ` - ${endDateFormatted}` }
+        </time>
+      </div>
+
+      <!-- Experience title -->
+      <p class="text-[--lightGray] dark:text-[--darkGray]">
+        { name }
+      </p>
     </header>
 
-    <!-- Experience title -->
-    <p class="block mt-1 mb-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-      { name }
-    </p>
     <!-- Experience description -->
-    <p class="mb-4 font-normal text-gray-500 dark:text-gray-400">
-      { summary }
-    </p>
+    <p>{ summary }</p>
   </div>
 </article>
 

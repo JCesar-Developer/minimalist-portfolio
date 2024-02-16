@@ -1,4 +1,5 @@
-import type { Certificates } from "@/i18n/cv";
+//SPANISH TRANSLATION
+import type { Certificate } from "@/i18n/cv";
 
 /*
  * [] Quiero hacer AWS
@@ -11,11 +12,45 @@ import type { Certificates } from "@/i18n/cv";
  * [✅] Un certificado oficial de desarrollo web
 */
 
-export const certificates: Certificates[] = [
+export const certificates: Certificate[] = [
   {
-    name: "Certificate",
-    date: "2021-11-07",
-    issuer: "Company",
-    url: "https://certificate.com"
-  }
+    name: "Certificado de estudios de técnico superior en desarrollo de aplicaciones web y programación",
+    date: "2022-06-01",
+    issuer: "Universitat Oberta de Catalunya",
+    image: {
+      url: "/images/certificates/uoc.webp",
+      width: 1701,
+      height: 2339,
+    }
+  },
+  {
+    name: "Certificado de estudios de especialización en diseño UI/UX",
+    date: "2023-08-01",
+    issuer: "Zero to Mastery",
+    image: {
+      url: "/images/certificates/ui-ux.webp",
+      width: 2223,
+      height: 1653,
+    }
+  },
+  {
+    name: "Certificado de estudios de especialización en TailwindCSS",
+    date: "2023-11-22",
+    issuer: "Universitat Oberta de Catalunya",
+    image: {
+      url: "/images/certificates/tailwind.webp",
+      width: 2223,
+      height: 1653,
+    }
+  },
+  {
+    name: "Certificado de estudios de dominio de herramients de control de versiones con Git y GitHub",
+    date: "2022-10-13",
+    issuer: "Universitat Oberta de Catalunya",
+    image: {
+      url: "/images/certificates/git.webp",
+      width: 2223,
+      height: 1653,
+    }
+  },
 ];

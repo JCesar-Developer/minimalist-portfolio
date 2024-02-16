@@ -5,7 +5,7 @@ export interface CV {
   volunteer: Array<Volunteer>
   education: Array<Education>
   awards: Array<Awards>
-  certificates: Array<Certificates>
+  certificates: Array<Certificate>
   publications: Array<Publications>
   skills: Array<Skills>
   languages: Array<Languages>
@@ -93,11 +93,17 @@ interface Awards {
   summary: string
 }
 
-export interface Certificates {
-  name: string,
-  date: DateStr,
-  issuer: string,
+export interface Certificate {
+  name: string
+  date: DateStr
+  issuer: string
+  image: CertificateImage
+}
+
+interface CertificateImage {
   url: string
+  width: number
+  height: number
 }
 
 interface Publications {

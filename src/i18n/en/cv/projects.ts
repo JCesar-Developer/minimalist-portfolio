@@ -5,7 +5,7 @@ export const projects: Project[] = [
   {
     name: "El Croquis Digital",
     isActive: true,
-    image: './images/projects/croquis.webp',
+    image: '/images/projects/croquis.webp',
     description: 'Frontend project developed for the architecture company "El Croquis". It is a web for viewing the company\'s digital magazines, with a subscription model.',
     highlights: [
       "FrontEnd",
@@ -22,7 +22,7 @@ export const projects: Project[] = [
   {
     name: "Astro-Tailwind Projects",
     isActive: true,
-    image: './images/projects/astro-tailwind.webp',
+    image: '/images/projects/astro-tailwind.webp',
     description: "6 complete landing pages created from a design. Created with Astro + TailwindCSS, with 100% performance and optimized for SEO",
     highlights: [
       "HTML",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
   {
     name: "Rick & Morty App",
     isActive: true,
-    image: './images/projects/rick-morty.webp',
+    image: '/images/projects/rick-morty.webp',
     description: "Web application to search characters from the Rick & Morty series. Finalist of the Hackathon contest by Jump2Digital Barcelona.",
     highlights: [
       "Hackathon Finalist",

@@ -1,6 +1,7 @@
 ---
 import Section from '@/shared/components/Section.astro'
 import { getI18N } from '@/i18n';
+import 'photoswipe/style.css';
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -9,5 +10,35 @@ const { certificates: projectsTitle } = i18n.SECTIONS;
 const { certificates } = i18n.CV;
 ---
 <Section title={ projectsTitle }>
-
+  <ul id="gallery" class="pswp-gallery grid aspect- grid-cols-2 md:grid-cols-3 gap-2">
+    {
+      certificates.map(({ name, image }) => (
+        <li class="border border-[--veryLightGray] aspect-[4/3] rounded-md overflow-hidden dark:border-[--veryLightBlue]">
+          <a
+            href={ image.url }
+            data-pswp-width={ image.width }
+            data-pswp-height={ image.height }
+            target="_blank"
+          >
+            <img 
+              class="w-full object-cover object-top hover:scale-105 transition-all duration-300 ease-in-out" 
+              src={ image.url } 
+              alt={ name } 
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </Section>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe'),
+  });
+  lightbox.init();
+</script>

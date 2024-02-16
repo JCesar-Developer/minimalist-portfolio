@@ -48,7 +48,7 @@ export const education: Education[] = [
     area: "Web Development and Programming",
     studyType: "Higher Degree",
     startDate: "2020-09-01",
-    endDate: "2023-06-01",
+    endDate: "2022-06-01",
     score: 9.8,
     courses: []
   }

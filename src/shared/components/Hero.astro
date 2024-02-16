@@ -27,7 +27,7 @@ const SOCIAL_ICONS: Record<string, string | any> = {
       sm:flex-col sm:items-start">
 
         <!-- Location -->
-        <div class="my-0 sm:my-3 border border-[--lightGray] w-fit px-2 py-1 rounded-full flex flex-row items-center gap-2 text-[--darkGray] dark:border-[--darkGray] dark:text-[--lightGray]">
+        <div class="my-0 sm:my-3 border border-[--veryLightGray] w-fit px-2 py-1 rounded-full flex flex-row items-center gap-2 text-[--darkGray] dark:border-[--darkGray] dark:text-[--veryLightGray]">
           <WorldMap />
           <p class="text-xs">
             {city}, {region}
@@ -38,25 +38,29 @@ const SOCIAL_ICONS: Record<string, string | any> = {
         <footer>
           <ul class="flex flex-row gap-2">
             <!-- Link-buttons-mail -->
-            <li class="footer__link__icon">
+            <li>
               <a
                 href={`mailto:${email}`}
                 title={`Enviar un correo electrónico a ${name} al correo ${email}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Mail />
+                <button class="footer__link__icon">
+                  <Mail />
+                </button>
               </a>
             </li>
             <!-- Link-buttons-phone -->
-            <li class="footer__link__icon">
+            <li>
               <a
                 href={`tel:${phone}`}
                 title={`Llamar por teléfono a ${name} al número ${phone}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Phone />
+                <button class="footer__link__icon">
+                  <Phone />
+                </button>
               </a>
             </li>
             <!-- Link-buttons-social-icons -->
@@ -65,14 +69,16 @@ const SOCIAL_ICONS: Record<string, string | any> = {
                 const Icon = SOCIAL_ICONS[network]
     
                 return (
-                  <li class="footer__link__icon">
+                  <li>
                     <a
                       href={url}
                       title={`Visitar el perfil de ${name} en ${network}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Icon />
+                      <button class="footer__link__icon">
+                        <Icon />
+                      </button>
                     </a>
                   </li>
                 )
@@ -93,6 +99,6 @@ const SOCIAL_ICONS: Record<string, string | any> = {
 
 <style>
 .footer__link__icon {
-  @apply w-8 h-8 p-2 border border-[--lightGray] rounded-md flex items-center justify-center text-[--darkGray] cursor-pointer dark:border-[--darkGray] dark:text-[--lightGray] hover:bg-[--veryLightGray] hover:text-gray-900 dark:hover:bg-[--veryLightBlue];
+  @apply w-8 h-8 p-1.5 border border-[--veryLightGray] rounded-md flex items-center justify-center text-[--darkGray] cursor-pointer dark:border-[--veryLightBlue] dark:text-[--veryLightGray] hover:bg-[--veryLightGray] dark:hover:bg-[--veryLightBlue];
 }
 </style>

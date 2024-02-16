@@ -17,17 +17,21 @@ const { education } = i18n.CV;
         return (
           <li>
             <article>
-              <header class="flex flex-row justify-between items-center">
-                <h3 class:list={[ "text-md font-semibold text-gray-900 dark:text-white", { 'hover:underline hover:underline-offset-2': url } ]}>
-                  <a href={ url } target="_blank">
+              <header class="flex flex-col md:flex-row md:justify-between md:items-center">
+                <a href={ url } target="_blank">
+                  <h3 class:list={[ "text-md font-semibold", 
+                    { 
+                      'hover:underline hover:decoration-1 hover:underline-offset-4': url 
+                    } 
+                  ]}>
                     { institution }
-                  </a>
-                </h3>
-                <time class="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  </h3>
+                </a>
+                <time class="text-xs -mt-1 mb-1.5 md:my-0">
                   { startDateFormatted } { endDateFormatted && ` - ${endDateFormatted}` }
                 </time>
               </header>
-              <p class="text-gray-400 dark:text-gray-500">
+              <p class="text-[--lightGray] dark:text-[--darkGray]">
                 { studyType } - { area }.
               </p>
             </article>
